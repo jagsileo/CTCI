@@ -1,0 +1,18 @@
+public class Permutate {
+
+
+public ArrayList<String> permutateNoDups(String s) {
+	char[] c = s.toCharArray();
+	ArrayList<String> pList = new ArrayList<String>();
+	if(c.length == 1)
+		pList.add(s);
+	if(c.length == 2)
+		pList.add(s);
+		char temp = c[0];
+		c[0] = c[1];
+		c[1] = temp;
+		pList.add(c.toString());	
+		
+
+}
+}
