@@ -22,3 +22,21 @@ func removeDuplicate(ll *singleLinkedList.Node) *singleLinkedList.Node {
 
 	return ll
 }
+
+func removeDuplicateNoBuf(ll *singleLinkedList.Node) *singleLinkedList.Node {
+	n := ll
+	next := n.Next
+
+	for n != nil {
+		for next != nil {
+			if n.Value == next.Value {
+				n.Next = next.Next
+			}
+
+			next = next.Next
+		}
+		n = n.Next
+	}
+
+	return ll
+}

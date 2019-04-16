@@ -13,7 +13,14 @@ func TestRemoveDuplicate(t *testing.T) {
 	dedupedLL.PrintLinkedList()
 
 	if err := singleLinkedList.CompareLL(&expectedLL, dedupedLL); err != nil {
-		t.Error("Test Failed")
+		t.Error("Buf Test Failed")
+	}
+
+	dedupedLL = removeDuplicateNoBuf(&ll)
+	dedupedLL.PrintLinkedList()
+
+	if err := singleLinkedList.CompareLL(&expectedLL, dedupedLL); err != nil {
+		t.Error("No Buf Test Failed")
 	}
 }
 
