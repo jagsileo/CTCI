@@ -29,5 +29,6 @@ func buildLinkedList(buildElements []int8) singleLinkedList.Node {
 	for _, num := range buildElements {
 		ll.InsertElement(num)
 	}
+
 	return ll
 }
