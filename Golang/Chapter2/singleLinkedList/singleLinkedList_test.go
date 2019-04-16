@@ -1,9 +1,7 @@
 package singleLinkedList
 
 import (
-	"errors"
 	"log"
-	"reflect"
 	"testing"
 )
 
@@ -25,26 +23,4 @@ func buildLinkedList(buildElements []int8) Node {
 		ll.InsertElement(num)
 	}
 	return ll
-}
-
-func CompareLL(llA, llB *Node) error {
-	arrA := []int8{}
-	arrB := []int8{}
-
-	n := llA
-	for n != nil {
-		arrA = append(arrA, n.Value)
-		n = n.Next
-	}
-
-	n = llB
-	for n != nil {
-		arrB = append(arrB, n.Value)
-		n = n.Next
-	}
-
-	if !reflect.DeepEqual(arrA, arrB) {
-		return errors.New("Test Failed")
-	}
-	return nil
 }

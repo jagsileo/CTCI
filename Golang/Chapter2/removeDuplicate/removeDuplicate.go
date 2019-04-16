@@ -6,14 +6,15 @@ type void struct{}
 
 func removeDuplicate(ll *singleLinkedList.Node) *singleLinkedList.Node {
 	buf := make(map[int8]void)
-	counter := 0
 	n := ll
-	for n.Next != nil {
-		counter++
+	var prev *singleLinkedList.Node
+	prev = nil
+	for n != nil {
 		if _, ok := buf[n.Value]; !ok {
 			buf[n.Value] = void{}
+			prev = n
 		} else {
-			n = n.DeleteElement(n.Value, counter+1)
+			prev.Next = n.Next
 		}
 
 		n = n.Next
