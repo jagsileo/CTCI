@@ -2,29 +2,31 @@ package sumLists
 
 import "github.com/CTCI/Golang/Chapter2/singleLinkedList"
 
-func sumLists(listA *singleLinkedList.Node, listB *singleLinkedList.Node) *singleLinkedList.Node {
+func sumListsWhenNumReversed(listA *singleLinkedList.Node, listB *singleLinkedList.Node) *singleLinkedList.Node {
 	a := listA
 	b := listB
 	result := singleLinkedList.InstantiateLinkedList()
 	c := &result
 	var quotient, sum int8
 
-	for a != nil || b != nil {
+	for a != nil || b != nil || quotient != 0 {
+		sum += quotient
 		if a != nil {
 			sum += a.Value
+			a = a.Next
 		}
 		if b != nil {
 			sum += b.Value
+			b = b.Next
 		}
 
 		c.Next = &singleLinkedList.Node{
-			Value: (quotient + sum) % 10,
+			Value: sum % 10,
 			Next:  nil,
 		}
 		quotient = sum / 10
-		a = a.Next
-		b = b.Next
 		c = c.Next
+		sum = 0
 	}
 	return result.Next
 }
