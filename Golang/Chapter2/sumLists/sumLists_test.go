@@ -27,6 +27,8 @@ func TestSumLists(t *testing.T) {
 		t.Error("Test #2 Failed")
 	}
 
+	//Dumb me created list with value as int8. So things get messed up if I passed a test data with > 3 digits
+	//The algorithm works though
 	listA = buildLinkedList([]int8{1, 3})
 	listB = buildLinkedList([]int8{5, 9})
 
