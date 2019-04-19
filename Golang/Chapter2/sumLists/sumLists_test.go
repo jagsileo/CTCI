@@ -27,6 +27,27 @@ func TestSumLists(t *testing.T) {
 		t.Error("Test #2 Failed")
 	}
 
+	listA = buildLinkedList([]int8{1, 3})
+	listB = buildLinkedList([]int8{5, 9})
+
+	summedList = sumListsWhenNumForward(&listA, &listB)
+	expectedList = buildLinkedList([]int8{7, 2})
+
+	summedList.PrintLinkedList()
+	if err := singleLinkedList.CompareLL(summedList, &expectedList); err != nil {
+		t.Error("Test #3 Failed")
+	}
+
+	listA = buildLinkedList([]int8{3})
+	listB = buildLinkedList([]int8{6, 9})
+
+	summedList = sumListsWhenNumForward(&listA, &listB)
+	expectedList = buildLinkedList([]int8{7, 2})
+	// summedList.PrintLinkedList()
+	if err := singleLinkedList.CompareLL(summedList, &expectedList); err != nil {
+		t.Error("Test #4 Failed")
+	}
+
 }
 
 func buildLinkedList(buildElements []int8) singleLinkedList.Node {
