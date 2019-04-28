@@ -10,14 +10,14 @@ func TestDeleteMiddleElement(t *testing.T) {
 	ll := buildLinkedList([]int8{2, 5, 8, 6, 7, 2, 5})
 
 	n := &ll
-	for i := 0; i < 5; i++ {
+	for i := 0; i < 4; i++ {
 		n = n.Next
 	}
 
 	deleted := deleteMiddleElement(n)
 	deleted.PrintLinkedList()
 	n = &ll
-	for i := 0; i < 4; i++ {
+	for i := 0; i < 3; i++ {
 		n = n.Next
 	}
 

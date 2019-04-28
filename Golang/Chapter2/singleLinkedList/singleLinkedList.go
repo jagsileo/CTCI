@@ -24,6 +24,11 @@ func (ll *Node) InsertElement(val int8) *Node {
 		return nil
 	}
 
+	if n.Value == 0 && n.Next == nil {
+		n.Value = val
+		return n
+	}
+
 	for n.Next != nil {
 		n = n.Next
 	}

@@ -22,10 +22,7 @@ func partitionLL(ll *singleLinkedList.Node, k int8) *singleLinkedList.Node {
 		n = n.Next
 	}
 	n = ll
-	lessHead := &singleLinkedList.Node{
-		Value: 0,
-		Next:  nil,
-	}
+	lessHead := &singleLinkedList.Node{}
 	less := lessHead
 	prev := n
 	counter = 0
@@ -45,7 +42,7 @@ func partitionLL(ll *singleLinkedList.Node, k int8) *singleLinkedList.Node {
 	}
 
 	less.Next = ll
-	ll = lessHead
+	ll = lessHead.Next
 
 	return ll
 

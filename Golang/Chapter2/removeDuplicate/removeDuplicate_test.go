@@ -25,7 +25,7 @@ func TestRemoveDuplicate(t *testing.T) {
 }
 
 func buildLinkedList(buildElements []int8) singleLinkedList.Node {
-	ll := singleLinkedList.InstantiateLinkedList()
+	ll := singleLinkedList.Node{}
 	for _, num := range buildElements {
 		ll.InsertElement(num)
 	}

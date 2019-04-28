@@ -8,8 +8,8 @@ import (
 func TestDeleteLinkedList(t *testing.T) {
 	ll := buildLinkedList([]int8{2, 5, 8, 6, 7, 2, 5})
 	expectedLL := buildLinkedList([]int8{2, 5, 8, 6, 7, 2})
-	deleteLL := ll.DeleteElement(5, 7)
-
+	deleteLL := ll.DeleteElement(5, 6)
+	deleteLL.PrintLinkedList()
 	if err := CompareLL(&expectedLL, deleteLL); err != nil {
 		log.Println(deleteLL)
 		t.Error(err)

@@ -6,32 +6,31 @@ import (
 
 func isListPalindrome(ll *singleLinkedList.Node) bool {
 
-	n := ll
-	len := getLen(ll)
+	rev := reverseLL(ll)
 
-	ctr := 1
-
-	for n != nil && ctr <= len/2 {
-		n = n.Next
-		ctr++
+	if err := singleLinkedList.CompareLL(&rev, ll); err != nil {
+		return false
 	}
 
-	n1 := ll
-
-	for n != nil {
-		if n.Value != 
-	}
-	return false
+	return true
 }
 
-func getLen(ll *singleLinkedList.Node) int {
-	n := ll
-	len := 0
+func reverseLL(input *singleLinkedList.Node) singleLinkedList.Node {
+	prev := &singleLinkedList.Node{}
+	prev = nil
+	inputCopy := *input
+	curr := &inputCopy
+	next := curr.Next
+	for next != nil {
 
-	for n != nil {
-		n = n.Next
-		len++
+		curr.Next = prev
+		prev = curr
+		curr = next
+		next = curr.Next
+
 	}
-
-	return len
+	curr.Next = prev
+	print("REVERSED ....\n")
+	curr.PrintLinkedList()
+	return *curr
 }
