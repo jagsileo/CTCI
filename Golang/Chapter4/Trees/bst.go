@@ -20,27 +20,28 @@ func buildBST(arr []int) *Node {
 	bst := Node{}
 	bstCopy := &bst
 	for _, num := range arr {
-		bstCopy.insertNode(num)
+		bstCopy = bstCopy.insertNode(num)
 	}
-	return &bst
+	return bstCopy
 }
 
-func (node *Node) insertNode(num int) {
+func (node *Node) insertNode(num int) *Node {
 	if node == nil {
 		node = &Node{Item: num, Left: nil, Right: nil}
-		return
+		return node
 	}
 
 	if node.Item == 0 {
 		node.Item = num
-		return
+		return node
 	}
 
 	if num < node.Item {
-		(node.Left).insertNode(num)
+		node.Left = (node.Left).insertNode(num)
 	} else if num > node.Item {
-		(node.Right).insertNode(num)
+		node.Right = (node.Right).insertNode(num)
 	}
+	return node
 
 }
 
@@ -54,3 +55,28 @@ func (node *Node) printNode() {
 	(node.Right).printNode()
 
 }
+
+func (node *Node) calcHeight() int {
+	if node == nil {
+		return 0
+	}
+
+	return 1 + max(node.Left.calcHeight(), node.Right.calcHeight())
+}
+
+func max(a int, b int) int {
+	if a >= b {
+		return a
+	}
+
+	return b
+}
+
+// func avlTree(node *Node) *Node {
+// 	if node == nil {
+// 		return nil
+// 	}
+
+// 	hDiff := node.Right.calcHeight() - node.Left.calcHeight()
+
+// }
